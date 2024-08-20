@@ -26,3 +26,13 @@ export async function DisableCategoryAction(formData: FormData){
     const { data } = await AxiosInstance.put(`/categories/${id}/inactive-category`)
     return data
 }
+
+export async function EditCategoryAction(formData: FormData){
+    const id = formData.get('id')
+    const name = formData.get('name')
+
+    const categoryEdit = {name}
+
+    const { data } =  await AxiosInstance.put(`/categories/${id}`, categoryEdit)
+    return data
+}

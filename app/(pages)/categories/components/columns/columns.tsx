@@ -15,7 +15,7 @@ import {
 import dayjs from 'dayjs';
 import { DisableProduct } from '../disable-category'
 import { EnableCategory } from '../enable-category'
-
+import { EditCategory } from "../edit-category";
 
 export const columns: ColumnDef<Category>[] = [
     {
@@ -67,6 +67,7 @@ export const columns: ColumnDef<Category>[] = [
                         <DropdownMenuLabel>Acciones</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
+                            <EditCategory category={category} />
                             {
                                 category.status === "active" ? (
                                     <DisableProduct category={category}/>

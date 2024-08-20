@@ -12,7 +12,6 @@ import { Input } from '@/components/ui/input'
 import { useCategories } from '../../hooks'
 import { AddCategory } from '../add-category'
 
-
 export default function ContentCategories() {
     const {data, isLoading, isError } = useCategories()
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
