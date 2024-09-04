@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { GetAllWarehousesAction } from '../../actions'
+import { GetAllWarehousesAction } from '../../services'
 
 export default function useWarehouses() {
   const queryWarehouse = useQuery({

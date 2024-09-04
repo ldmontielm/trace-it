@@ -3,4 +3,5 @@ export interface Warehouse {
     address: string
     city: string
     name: string
+    status: string
 }

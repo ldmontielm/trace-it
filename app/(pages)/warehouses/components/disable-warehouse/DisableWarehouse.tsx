@@ -1,9 +1,56 @@
-import React from 'react'
+"use client"
 
-export default function DisableWarehouse() {
+import React, { useState } from 'react'
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Trash2 } from 'lucide-react'
+import { useWarehouseDisableMutation } from '../../hooks'
+import { Warehouse } from '../../models'
+
+
+interface Props {
+  warehouse: Warehouse
+}
+
+export default function DisableWarehouse({ warehouse }: Props) {
+  const { mutate } = useWarehouseDisableMutation()
+  const [open, setOpen] = useState(false)
+
+  function onSubmit() {
+    const formData = new FormData()
+    formData.append('id', warehouse.id)
+    mutate(formData)
+    setOpen(false)
+  }
+
   return (
-    <div>
-      
-    </div>
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <span className='relative text-neutral-900 flex gap-2 items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent data-[disabled]:pointer-events-none data-[disabled]:opacity-50 cursor-pointer hover:bg-gray-50'>
+            <Trash2 size={14} />
+            <span>Inhabilitar</span>
+        </span>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-lg overflow-hidden">
+        <div className="border-b flex items-center justify-between">
+          <div className="bg-neutral-50 p-4 w-full">
+            <h2 className="font-bold text-lg">Inhabilitar Almacén</h2>
+            <p className="text-xs text-muted-foreground">
+            ¿Esta seguro de que desea inhabilitar este almacén - <span className='font-medium text-neutral-900'>{warehouse.name}</span>?.
+            </p>
+          </div>
+        </div>
+        <div className="px-4 text-sm">
+          <DialogFooter className='pb-4'>
+            <Button type="submit" size="sm" onClick={() => onSubmit()}>Inhabilitar</Button>
+          </DialogFooter>
+        </div>
+      </DialogContent>
+    </Dialog>
   )
 }

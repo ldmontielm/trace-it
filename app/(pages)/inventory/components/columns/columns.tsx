@@ -13,7 +13,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Inventory } from "../../models";
-import { Product } from "@/app/(pages)/products/models";
+import { Product } from "../../(pages)/products/models";
 import { SetQuantity } from "../set-quantity";
 
 export const columns: ColumnDef<Inventory>[] = [
@@ -36,6 +36,14 @@ export const columns: ColumnDef<Inventory>[] = [
         header: "SKU",
         cell: ({ row }) => {
             return row.getValue("sku")
+        }
+    },
+    {
+        accessorKey: "warehouse",
+        header: "Álmacen",
+        cell: ({ row }) => {
+            const inventory = row.original
+            return inventory.location.warehouse.name
         }
     },
     {
