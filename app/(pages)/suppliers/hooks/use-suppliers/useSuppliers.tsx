@@ -9,7 +9,7 @@ export default function useSuppliers() {
         queryFn: GetAllSuppliers
     })
     return {
-        data: querySuppliers.data!,
+        data: querySuppliers.isLoading ? [] : querySuppliers.data!,
         isLoading: querySuppliers.isLoading,
         error: querySuppliers.error,
         isError: querySuppliers.isError

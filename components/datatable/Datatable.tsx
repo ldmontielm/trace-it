@@ -22,7 +22,7 @@ export default function DataTable<TData, TValue>({
   table,
 }: Props<TData, TValue>) {
   return (
-    <Table>
+    <Table className="text-xs">
       <TableHeader>
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id} className="px-4">
@@ -30,7 +30,7 @@ export default function DataTable<TData, TValue>({
               return (
                 <TableHead
                   key={header.id}
-                  className="font-medium uppercase text-xs bg-neutral-50 text-neutral-600"
+                  className="font-medium uppercase bg-neutral-50 text-neutral-600"
                 >
                   {header.isPlaceholder
                     ? null

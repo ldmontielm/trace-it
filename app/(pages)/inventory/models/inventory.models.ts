@@ -1,11 +1,8 @@
-import { Product } from "../../products/models"
-
 export interface Inventory {
     id: string
     quantity: number
     sku: string
-    barcode: string
-    product: Product
+    barcode: String
     location: Location
 }
 

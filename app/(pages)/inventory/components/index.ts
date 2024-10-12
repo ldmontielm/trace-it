@@ -1,3 +1,1 @@
-export * from './columns';
-export * from './content-inventories';
-export * from './set-quantity';
+export * from './set-quantity/SetQuantity';

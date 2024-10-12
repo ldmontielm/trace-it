@@ -2,9 +2,10 @@
 
 import React, { useEffect, useState } from 'react'
 import { MenuUser } from '../menu-user'
-import { PanelRightClose } from 'lucide-react'
+import { PanelRightClose, Slash, ChevronRight } from 'lucide-react'
 import { Button } from '../ui/button'
 import { useSidebarStore } from '@/store'
+import { Breadcrumb } from '../breadcrumb'
 
 export default function Navbar() {
     const toggleExpanded = useSidebarStore((state) => state.toggleExpended)
@@ -25,15 +26,18 @@ export default function Navbar() {
     }   
 
     return (
-        <div className={`fixed top-0 border-b bg-white dark:bg-neutral-800 dark:border-b-neutral-700/50`} style={styleExpanded}>
-            <div className='h-full px-3 py-4 flex items-center justify-between'>
-                <Button variant="outline" size="icon_xs" onClick={toggleExpanded}>
-                    <PanelRightClose size={16} className='text-neutral-800' />
-                </Button>
-                <div className='flex items-center gap-2'>
-                <MenuUser />
+        <div className={`fixed top-0`} style={styleExpanded}>
+            <div className='border-b bg-white dark:bg-neutral-800 dark:border-b-neutral-700/50'>
+                <div className='h-full px-3 py-2 flex items-center justify-between'>
+                    <Button variant="outline" size="icon_xs" onClick={toggleExpanded}>
+                        <PanelRightClose size={16} className='text-neutral-800' />
+                    </Button>
+                    <div className='flex items-center gap-2'>
+                    <MenuUser />
+                    </div>
                 </div>
             </div>
+            <Breadcrumb />
         </div>
     )
 }

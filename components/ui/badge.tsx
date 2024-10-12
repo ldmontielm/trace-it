@@ -19,6 +19,9 @@ const badgeVariants = cva(
         success: "border-transparent bg-green-600/20 text-green-600",
         terminated: "border-transparent bg-amber-500/20 text-amber-500",
         inactive: "border-transparent bg-destructive/20 text-destructive",
+
+        inventory_entry: "border-transparent bg-pink-500/20 text-pink-500",
+        inventory_outflow: "border-transparent bg-violet-500/20 text-violet-500",
       },
     },
     defaultVariants: {

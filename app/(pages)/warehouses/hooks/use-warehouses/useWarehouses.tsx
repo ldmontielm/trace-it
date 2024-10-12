@@ -10,9 +10,9 @@ export default function useWarehouses() {
     queryFn: GetAllWarehousesAction
   })
   return {
-    data: queryWarehouse.data!,
+    data: queryWarehouse.isLoading ? [] : queryWarehouse.data!,
     isLoading: queryWarehouse.isLoading,
     error: queryWarehouse.error,
     isError: queryWarehouse.isError
-}
+  }
 }

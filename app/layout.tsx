@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Manrope, Open_Sans } from "next/font/google";
+import { Inter, Manrope, Nabla, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/sidebar/Sidebar";
 import { Container } from "@/components/container";
@@ -27,7 +27,7 @@ export default function RootLayout({
           <Sidebar />
           <Container>
             <Navbar />
-            <div className="mt-10">
+            <div className="mt-16">
               {children}
             </div>
             <Toaster />
